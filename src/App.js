@@ -1,12 +1,12 @@
 import './App.css';
-import Jobs from './components/jobs';
-import Users from './components/users'
+import Jobs from 'components/jobs';
+import Employees from 'components/employees'
 
 function App() {
   return (
     <div className="App">
-        <Jobs ></Jobs>
-        {/* <Users /> */}
+        <Jobs />
+        <Employees />
     </div>
   );
 }

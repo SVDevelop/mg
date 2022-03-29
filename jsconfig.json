@@ -1,20 +1,6 @@
 {
     "compilerOptions": {
-        "module": "commonJS",
-        "baseUrl": "./src",
-        "paths": {
-            "@hooks/*": [
-                "./src/hooks/*"
-            ],
-            "@components/*": [
-                "./src/components/*"
-            ],
-            "@module/*": [
-                "./src/module/*"
-            ]
-        }
+        "baseUrl": "src"
     },
-    "include": [
-        "src"
-    ]
+    "include": ["src"]
 }
