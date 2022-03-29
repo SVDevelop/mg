@@ -1,7 +1,9 @@
 export const JOBS = 'jobs'
 export const EMPLOYEES = 'employees'
 
-const ENDPOINTS = {
+export const USERS = 'users'
+
+export const ENDPOINTS = {
     [JOBS]: {
         url: '/jobs',
         method: 'GET',
@@ -9,7 +11,9 @@ const ENDPOINTS = {
     [EMPLOYEES]: {
         uri: 'employees',
         method: 'GET'
-    }
+    },
+    [USERS]: {
+        url: '/users',
+        method: 'GET',
+    },
 }
-
-export default ENDPOINTS

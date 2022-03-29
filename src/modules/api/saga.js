@@ -1,24 +1,26 @@
-import {takeEvery} from 'redux-saga/effects'
+import {takeEvery, put, all} from 'redux-saga/effects'
 import api from './api';
-import { apiACtions, API_ACTIONS } from './actions';
+import { apiActions, API_ACTIONS } from './actions';
 
-export function* onApiLoad() {
-    const actionType = type.replace(API_ACTIONS.FEATCH_START, '').toLowerCase();
+export function* onApiLoad({payload, type}) {
+    const actionType = type.replace(API_ACTIONS.FETCH_START, '').toLowerCase();
 
     try {
-        const response = yield api.fetch(actionType, payload)
-        yield put(apiACtions.fetchSuccess(actionType, response))
-    } catch (e) {
-        yield put(apiACtions.fetchFailure(actionType, e))
+        const response = yield api.fetch(actionType, payload);
+        console.log(response)
+
+        yield put(apiActions.fetchSuccess(actionType, response));
+    } catch(e) {
+        yield put(apiActions.fetchFailure(actionType, e));
     }
 }
 
 export function* watchApiLoad() {
-    yield takeEvery(action=>action.type.startsWith(API_ACTIONS.FEATCH_START), onApiLoad)
+    yield takeEvery(action => action.type.startsWith(API_ACTIONS.FETCH_START), onApiLoad);
 }
 
-export function* apiRootSaga() {
+export default function* apiRootSaga() {
     yield all([
         watchApiLoad()
-    ])
+    ]);
 }
