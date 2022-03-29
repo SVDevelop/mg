@@ -4,7 +4,7 @@ export const API_ACTIONS = {
     FEATCH_FAILURE: 'FEATCH_FAILURE_',
 }
 
-export const apiACtions = {
+export const apiActions = {
     fetch: (endpoint, payload) => ({
         type: `${API_ACTIONS.FEATCH_START}${endpoint.toUpperCase()}`,
         payload
